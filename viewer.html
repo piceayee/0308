@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <link rel="stylesheet" href="viewer.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPS 照片標記</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exif-js/2.3.0/exif.js"></script>
+    <style>
+        #map { height: 500px; }
+        #photoList img { width: 100px; margin: 5px; }
+    </style>
+
+        <!-- 標記群組化的 CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css">
+    <!-- 標記群組化的 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"></script>
+        
+    <button id="exportData">匯出資料</button>
+    <input type="file" id="importData" style="display: none;" />
+    <button id="importButton">匯入資料</button>
+    
+    
+</head>
+<body>
+
+    <button id="clearMarkers">清除所有標記</button>
+    <button id="reloadGitHubData">重新載入 GitHub JSON</button>
+
+    <h2>測試版</h2>
+    <input type="file" id="fileInput" multiple accept="image/*">
+    <div>
+        <label><input type="checkbox" class="category-filter" value="花磚＆裝飾"> 花磚＆裝飾</label>
+        <label><input type="checkbox" class="category-filter" value="洋樓＆房舍"> 洋樓＆房舍</label>
+        <label><input type="checkbox" class="category-filter" value="風獅爺"> 風獅爺</label>
+        <label><input type="checkbox" class="category-filter" value="軍事"> 軍事</label>
+        <label><input type="checkbox" class="category-filter" value="其他"> 其他</label>
+        <label><input type="checkbox" class="category-filter" value="未分類"> 未分類</label>
+    </div>
+
+    <div id="map"></div>
+    <div id="photoList"></div>
+
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="fullImage">
+    </div>
+
+    
+    <!-- 確保 script.js 在 <body> 末尾 -->
+    <script src="viewer.js"></script>
+
+</body>
+</html>

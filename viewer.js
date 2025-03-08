@@ -261,7 +261,7 @@
 				return;
 			}
 			const repoOwner = "piceayee";
-			const repoName = "edit";
+			const repoName = "0308";
 			const folderPath = "data"; // GitHub 上的資料夾名稱
 			const branch = "main"; // 或者你的分支名稱
 			// 🚀 1. 使用 GitHub API 取得資料夾內的檔案列表
